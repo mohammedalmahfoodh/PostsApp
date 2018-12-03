@@ -1,10 +1,22 @@
 
 <mat-card>
-  <mat-form-field >
-    <textarea name="" matInput  rows="6" (keyup)="onAddPost()" [(ngModel)]="enteredValue"></textarea>
-  </mat-form-field>
-  <button mat-raised-button color="primary"
-  (click)="onAddPost()" class="btn btn-primary" type="button">Add Text</button>
+  <form (submit)="onAddPost(postForm)"  #postForm="ngForm"  >
+      <mat-form-field >
+          <h5>Enter a title</h5>
+            <input  name="title"
+             ngModel matInput type="text">
+          </mat-form-field>
+      <mat-form-field >
+        <h5>Enter a comment</h5>
+        <textarea ngModel name="content" matInput  rows="4"  ></textarea>
+      </mat-form-field>
+      <button mat-raised-button color="primary"
+       class="btn btn-primary" type="submit">Add Comment</button>
+
+
+
+</form>
+
 </mat-card>
 
 

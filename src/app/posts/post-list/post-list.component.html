@@ -1,9 +1,30 @@
 <mat-accordion *ngIf="posts.length>0">
   <mat-expansion-panel *ngFor="let post of posts">
     <mat-expansion-panel-header>
-    <p>{{post.title}}</p>
+        <div class="container">
+            <div class="row">
+              <div class="col-9">
+                  <h5>{{post.title}}</h5>
+              </div>
+              <div class="col-3">
+                  <h5> Date created on   </h5>
+              </div>
+            </div>
+          </div>
+
     </mat-expansion-panel-header>
-    <p>{{post.content}} </p>
+    <div class="container">
+        <div class="row">
+          <div class="col-9">
+              <p>{{post.content}} </p>
+          </div>
+          <div class="col-3">
+              <h6 >{{post.date}}</h6>
+          </div>
+        </div>
+      </div>
+
+
   </mat-expansion-panel>
 </mat-accordion>
 <h5 class="text-info" *ngIf="posts.length<=0">No posts to display</h5>
