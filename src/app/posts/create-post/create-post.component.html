@@ -1,24 +1,36 @@
-
 <mat-card>
-  <form (submit)="onAddPost(postForm)"  #postForm="ngForm"  >
-      <mat-form-field >
-          <h5>Enter a title</h5>
-            <input  name="title"
-             ngModel matInput type="text">
-          </mat-form-field>
-      <mat-form-field >
-        <h5>Enter a comment</h5>
-        <textarea ngModel name="content" matInput  rows="4"  ></textarea>
-      </mat-form-field>
-      <button mat-raised-button color="primary"
-       class="btn btn-primary" type="submit">Add Comment</button>
-
-
-
-</form>
-
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <h5>Enter a title</h5>
+      <input
+        name="title"
+        required
+        #title="ngModel"
+        ngModel  
+        matInput
+        type="text"
+      />
+      <mat-error *ngIf="title.invalid">Please Enter a Title</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <h5>Enter a comment</h5>
+      <textarea
+        ngModel
+        name="content"
+        matInput
+        required
+        rows="4"
+        #contentR="ngModel"
+      ></textarea>
+      <mat-error *ngIf="contentR.invalid">Please Enter a Comment</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      class="btn btn-primary mt-2"
+      type="submit"
+    >
+      Add Comment
+    </button>
+  </form>
 </mat-card>
-
-
-
-

@@ -19,12 +19,17 @@
               <p>{{post.content}} </p>
           </div>
           <div class="col-3">
-              <h6 >{{post.date}}</h6>
+              <h6 >{{post.postDate}}</h6>
           </div>
         </div>
-      </div>
+         </div>
+         <mat-action-row>
 
+          <button mat-button color="primary" (click)="edite()">EDITE</button>
+          <button mat-button color="warn" (click)="delete()">DELETE</button>
+        </mat-action-row>
 
   </mat-expansion-panel>
 </mat-accordion>
 <h5 class="text-info" *ngIf="posts.length<=0">No posts to display</h5>
+<button class="btn btn-primary" (click)="loadPost()" type="button">load posts</button>
