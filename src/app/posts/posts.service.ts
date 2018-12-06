@@ -25,18 +25,10 @@ ngOnInit() {
     console.log(resp.body)
   });
 
-    this.postUpdated.next(this.posts)
+
 }
-loadPost(){
-  this.httprequest.getPosts().subscribe(resp =>{
-    // display its headers
-    const keys = resp.headers.keys();
-    this.headers = keys.map(key =>
-      `${key}: ${resp.headers.get(key)}`);
-    // access the body directly, which is typed as `Config`.
-    this.posts = resp.body ;
-    console.log(resp.body)
-  });
+loadPost(posts:Post[]){
+this.posts=posts;
 
 }
 addPost(title:string,content:string){
@@ -64,7 +56,7 @@ formatPostDate():string{
    let minutsS=minuts<10?`0${minuts}`:minuts.toString()
   return `${arryDS[0]}\u00A0\u00A0\u00A0\u00A0   ${hoursS}:${minutsS} `
 }
-public getPosts(){
+public getPosts():Post[]{
   return this.posts;
 }
 }

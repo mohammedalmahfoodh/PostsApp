@@ -24,14 +24,15 @@ private postSubb:Subscription;
 
    }
    edite(){
-
+    console.log(this.postServices.getPosts())
    }
    delete(){
 
    }
   ngOnInit() {
-    this.posts=this.postServices.getPosts();
-   // this.loadPost()
+    this.postHttpSercice.getReadyPosts().subscribe(posts=>this.posts=posts);
+    //this.loadPost()
+    //this.postServices.loadPost(this.posts);
   }
   ngOnDestroy(): void {
     this.postSubb.unsubscribe();
@@ -45,8 +46,11 @@ private postSubb:Subscription;
         `${key}: ${resp.headers.get(key)}`);
       // access the body directly, which is typed as `Config`.
       this.posts = resp.body ;
-      console.log(this.postServices.getPosts())
+
     });
 
+  }
+  public loadFromSer(){
+    console.log( this.postServices.getPosts()   )
   }
 }

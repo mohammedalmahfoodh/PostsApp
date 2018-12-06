@@ -1,3 +1,4 @@
+import { HttpRequestsService } from './../services/http-requests.service';
 import { PostService } from './../posts.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -10,14 +11,14 @@ import { NgForm } from '@angular/forms';
 })
 export class CreatePostComponent implements OnInit {
 
-  constructor(public postService:PostService) {}
+  constructor(public postService:PostService,public postsHttp:HttpRequestsService) {}
 // tslint:disable-next-line:one-line
 onAddPost(postForm:NgForm){
   if(postForm.invalid){
     return;
   }
    console.log(postForm.controls["content"])
- this.postService.addPost(postForm.value.title,postForm.value.content);
+ this.postsHttp.addPost(postForm.value.title,postForm.value.content);
  postForm.resetForm();
 
 }
